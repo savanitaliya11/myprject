@@ -1,0 +1,56 @@
+{% extends 'layout.html'%}
+{%block body%}
+
+
+
+<h1>Welcome to the Form</h1>
+
+<form action="edit/{{result.id}}" method="post">
+
+{% csrf_token %}
+    <div class="form-group mx-2 my-2">
+        <label for="exampleFormControlInput1">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Tonny stark" value="{{result.name}}">
+    </div>
+
+
+    <div class="form-group mx-2 my-2">
+        <label for="exampleFormControlInput1">Contact</label>
+        <input type="tel" class="form-control" id="con" name="contact" placeholder="1234567890" value="{{result.contact}}">
+    </div>
+
+
+    <div class="form-group mx-2 my-2">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com" value="{{result.email}}">
+    </div>
+
+
+    <div class="form-group mx-2 my-2">
+        <label for="exampleFormControlSelect1">Select Technologie's</label>
+        <select class="form-control" name="select" id="exampleFormControlSelect1" value="{{result.select}}">
+            <option>Python</option>
+            <option>Flutter</option>
+            <option>Web designing</option>
+            <option>Graphics design</option>
+            <option>UI/AI</option>
+        </select>
+    </div>
+
+
+    <div class="form-group mx-2 my-2">
+        <label for="exampleFormControlTextarea1">Message area</label>
+        <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary mx-2 my-2">
+        Submit
+    </button>
+
+
+</form>
+
+
+
+{%endblock%}

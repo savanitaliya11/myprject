@@ -28,3 +28,32 @@ def show(request):
         'result': result
     }
     return render(request, 'show.html', params)
+
+
+def delete(request, id):
+    instance = Students.objects.get(id=id)
+    instance.delete()
+    return redirect('show')
+
+
+def update(request, id):
+    result = Students.objects.get(id=id)
+    params = {
+        'result': result
+    }
+    return render(request, 'update.html', params)
+
+
+def edit(request, id):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        tel = request.POST.get('contact')
+        email = request.POST.get('email')
+        drop = request.POST.get('select')
+        mes = request.POST.get('message')
+
+        if id != 0:
+            Students.objects.filter(id=id).update(name=name, contact=tel, email=email, select=drop, message=mes)
+            return redirect('show')
+    else:
+        return render(request, 'show.html')
