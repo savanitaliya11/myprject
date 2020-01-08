@@ -2,7 +2,46 @@
 {%block body%}
 
 
+<table class="table">
 
-<h1>hey</h1>
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Contact</th>
+        <th scope="col">Email</th>
+        <th scope="col">Select</th>
+        <th scope="col">Message</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {%for r in result%}
+    <tr>
+        <th scope="row">{{r.id}}</th>
+        <td>{{r.name}}</td>
+        <td>{{r.contact}}</td>
+        <td>{{r.email}}</td>
+        <td>{{r.select}}</td>
+        <td>{{r.message}}</td>
+        <td>
+            <a href="#">
+                <button class="btn btn-primary mx-2 my-2">Delete</button>
+            </a>
+        </td>
+        <td>
+            <a href="#">
+                <button class="btn btn-primary mx-2 my-2">Update</button>
+            </a></td>
+    </tr>
+    {%endfor%}
+
+    </tbody>
+
+</table>
+
 
 {%endblock%}

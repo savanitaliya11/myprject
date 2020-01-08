@@ -23,4 +23,8 @@ def form(request):
 
 
 def show(request):
-    return HttpResponse('hey')
+    result = Students.objects.all()
+    params = {
+        'result': result
+    }
+    return render(request, 'show.html', params)
